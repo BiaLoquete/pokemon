@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ Titulo }}</title>
+    <link rel="stylesheet" href="static/estilo.css">
+</head>
+<body>
+    <div>
+        <h1>{{ Titulo }}</h1>
+    </div>
+    {% for Pokemons in ListaPokemons %}
+    <div class="pokemon-card">
+        <h2>Nome: {{ Pokemons.nome }}</h2>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{Pokemons.numero}}.png">
+        <p>Tipo: {{ Pokemons.tipo }}</p>
+        <p>Altura: {{ Pokemons.altura }} cm</p>
+        <p>Peso: {{ Pokemons.peso }} kg</p>
+        <br>
+
+        {# está passando uma rota intermediaria que vai receber como parametro o numero do pokemon #}
+        <a href="excluir/{{ Pokemons.numero }}">Excluir</a>
+        <a href="editar/{{ Pokemons.numero }}">Editar</a>
+    </div>
+    {% endfor %}
+    {#para encerrar o for#}
+
+
+</body>
+</html>
